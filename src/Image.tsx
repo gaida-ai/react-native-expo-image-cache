@@ -83,6 +83,7 @@ export default class Image extends React.Component<ImageProps, ImageState> {
         onError({ nativeEvent: { error } });
       }
     } else {
+      console.log('HEREEEEEEE');
       this.setState({ uri: undefined });
     }
   }
