@@ -69,6 +69,7 @@ export default class Image extends React.Component<ImageProps, ImageState> {
   }
 
   async load({ uri, options = {}, onError }: ImageProps): Promise<void> {
+    console.log(uri);
     if (uri) {
       try {
         const path = await CacheManager.get(uri, options).getPath();
@@ -83,7 +84,7 @@ export default class Image extends React.Component<ImageProps, ImageState> {
         onError({ nativeEvent: { error } });
       }
     } else {
-      console.log('HEREEEEEEE');
+      console.error('daaaaa');
       this.setState({ uri: undefined });
     }
   }
