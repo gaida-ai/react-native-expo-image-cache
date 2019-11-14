@@ -76,12 +76,16 @@ export default class Image extends React.Component<ImageProps, ImageState> {
           if (path) {
             this.setState({ uri: path });
           } else {
+            this.setState({ uri: undefined });
             onError({ nativeEvent: { error: new Error("Could not load image") } });
           }
         }
       } catch (error) {
+        this.setState({ uri: undefined });
         onError({ nativeEvent: { error } });
       }
+    } else {
+      this.setState({ uri: undefined });
     }
   }
 
